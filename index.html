@@ -6,30 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+   
 </head>
 <body>
     <header>
    
-        <div> <span id="task">Tasks</span>
-          <span id="list">List</span></div>
+        <div> 
+            <span id="task">Tasks</span>
+          <span id="list">List</span>
+        </div>
         <!-- <input type="text" placeholder="Add new list"> -->
         
-        <div id="icons"><div class="iconBg"><span  id="plus">+</span> </div> Add item</div>
+        <div id="plusicons">
+            <div class="circle">
+                <span  id="plus">+</span> 
+            </div> 
+           Add item
+            </div>
      </header>
     
-     <header class="header2">
+     <header class="box2">
        
       <div class="backs">
-            <span id="backIcon" class="symbols">
-                arrow_back_ios
-                </span>
+           
+     <span id="backIcon" class="material-symbols-outlined">
+                    arrow_back_ios
+                    </span>
+                
                 <div id="back">Back</div>
             </div>
-        <div id="page2Header"></div>
-        <div id="header2Add" class="iconBg"><span  id="plus">+</span> </div> 
+        <div id="secondpage"></div>
+        <div id="Adds" class="iconBg"><span  id="plus">+</span> </div> 
      </header>
     
-     <p  id="todoText" class="todoText">No items in the todo list</p>
+     <p  id="todoheading" class="todoheading">No items in the todo list</p>
     
      <!-- <div class="popup">
       <div id="popupHead">Add new item</div>
@@ -39,12 +52,25 @@
         <button id="popupClose">Close</button>
     </div>
     </div> -->
-     <section>
+     <section></section>
      <!-- trash logo -->
-     <!-- <span class="symbols" id="trash" >
+     <!-- <span class="material-symbols-outlined">
+          delete
+</span>" id="trash" >
         delete
         </span> -->
-    </section>
+
+        <!--   <div class="todoCard">
+              <div class="Head">Heading</div>
+             <div class="subTaskRow">
+              <span class="subTask">Sub Task</span>
+              <span class="markDone">Mark Done</span> 
+              </div>
+              </div>
+              <div class="subTaskButtons">
+              <button class="trash">Trash</button>
+              <button class="createSubTask">+</button>
+              </div> -->
     <script src="./script.js"></script>
 </body>
 </html>

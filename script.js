@@ -1,12 +1,13 @@
-let icons = document.getElementById("icons")
+let icons = document.getElementById("plusicons")
 let section = document.querySelector("section")
-let todoText=document.getElementById('todoText')
-let header1=document.getElementsByTagName('header')[0]
-let header2=document.getElementsByTagName('header')[1]
-let page2Header= document.getElementById('page2Header')
+let todoheading=document.getElementById('todoheading')
+let container1=document.getElementsByTagName('header')[0]
+let container2=document.getElementsByTagName('header')[1]
+let secondpage= document.getElementById("secondpage")
 let backs=document.getElementsByClassName('backs')[0]
-let header2Add=document.getElementById('header2Add');
-// when we click on header add item
+let Adds=document.getElementById('Adds');
+
+// when we click on add item
 icons.addEventListener('click', ()=>{
   addItems("Add your items")
 })
@@ -14,7 +15,7 @@ icons.addEventListener('click', ()=>{
 function addItems(heading, parentNode=""){
 
   console.log(heading)
-//   create node
+// creating node
 let popup=document.createElement('div')
 popup.className="popup"
 let popupHead=document.createElement('div')
@@ -55,22 +56,22 @@ buttons.appendChild(popupClose)
     popupAdd.addEventListener("click", ()=>{
       createNewTask(popupInput.value)
       // to not show the text after the card creation
-      todoText.style.display="none"; 
+      todoheading.style.display="none"; 
       closingPopup()
-      page1();
+      firstpage();
     })
   }
-  //  closing the popup
+   // closing the popup
   popupClose.addEventListener("click", ()=>{
     closingPopup()
   })
 
-//   closing pop up function
+  // closing pop up function
   function closingPopup(){
     popup.remove()
     popupInput.value = ""
     
-    //  remove bg blur
+
 
 for(let i=0;i<document.body.children.length;i++){
     document.body.children[i].style.filter="blur(0)"
@@ -79,7 +80,7 @@ for(let i=0;i<document.body.children.length;i++){
 
   }
 
-//   bg blur
+
 for(let i=0;i<document.body.children.length;i++){
     document.body.children[i].style.filter="blur(5px)"
 
@@ -89,34 +90,24 @@ popup.style.filter="blur(0)"
 
 }
 
-//     <div class="todoCard">
-//       <div class="cardHead">Heading</div>
-//       <div class="subTaskRow">
-//         <span class="subTask">Sub Task</span>
-//         <span class="markDone">Mark Done</span> 
-//       </div>
-//       </div>
-//     <div class="subTaskButtons">
-//       <button class="trash">Trash</button>
-//       <button class="createSubTask">+</button>
-//     </div>
+
 
 function createNewTask(cardHeading){
   // creating nodes
   let todoCard = document.createElement("div")
   todoCard.className = "todoCard"
-//   todoCard.classList.add("centerCard")
 
-  let cardHead = document.createElement("div")
-  cardHead.className = "cardHead"
-  cardHead.textContent = cardHeading
+
+  let Head = document.createElement("div")
+  Head.className = "Head"
+  Head.textContent = cardHeading
 
   let subTaskButtons = document.createElement("div")
   subTaskButtons.className = "subTaskButtons"
 
   let trash = document.createElement("span")
   trash.textContent = "Delete"
-   trash.className="symbols";//trash-icon
+   trash.className="material-symbols-outlined";   
    trash.id="trash";
   let createSubTask = document.createElement("button")
   createSubTask.className = "createSubTask"
@@ -125,7 +116,7 @@ function createNewTask(cardHeading){
   // connecting Nodes
 
   section.appendChild(todoCard)
-  todoCard.appendChild(cardHead)
+  todoCard.appendChild(Head)
   todoCard.appendChild(subTaskButtons)
   subTaskButtons.appendChild(trash)
   subTaskButtons.appendChild(createSubTask)
@@ -140,22 +131,22 @@ function createNewTask(cardHeading){
     todoCard.remove()
     //This is dispalying the no item elements text when there is no cards
     if(section.children.length===0){
-        todoText.style.display="block"; 
+        todoheading.style.display="block"; 
     }
 
   })
 
   
-// trigger page 2 
-cardHead.addEventListener('click',()=>{
-    page2(todoCard);
+// trigger  
+Head.addEventListener('click',()=>{
+    secondpages(todoCard);
 })
 }
 
-// creating subtask function
+// creating subtask function-
 
 function creatingSubTask(subTaskDesc, parentNode){
-   // Parent node is nothing but a todoCard of a specific card 
+   
   // creating nodes
   let subTaskRow = document.createElement("div")
   subTaskRow.className = "subTaskRow"
@@ -181,34 +172,34 @@ function creatingSubTask(subTaskDesc, parentNode){
   })
 }
 
-// ------------------page 2 ---------------
-// back btn in page 2
+// secondpage
+// back btn in secondpage
 backs.addEventListener('click',()=>{
-    page1();
+    firstpage();
 })
-// add btn in page 2
-header2Add.addEventListener('click',()=>{
+// add btn in secondpage
+ Adds.addEventListener('click',()=>{
     addItems("Add your items");
  
 })
 
 
-function page2(parentNode){
-header1.style.display="none"
-header2.style.display="flex"
+function secondpages(parentNode){
+container1.style.display="none"
+container2.style.display="flex"
 parentNode.classList.add("centerCard")
 section.style.visibility="hidden"
-page2Header.textContent=parentNode.children[0].textContent;
+secondpage.textContent=parentNode.children[0].textContent;
 }
-function page1(){
-header1.style.display="flex"
-header2.style.display="none"
+function firstpage(){
+container1.style.display="flex"
+container2.style.display="none"
 section.style.visibility="visible"
-removeClass();
+removeCard();
 }
 
 // checking and removing if any centerCard class in any div
-function removeClass(){
+function removeCard(){
     for(let i=0;i<section.children.length;i++){
         section.children[i].classList.remove("centerCard");
     }
