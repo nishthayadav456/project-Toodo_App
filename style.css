@@ -222,7 +222,7 @@ body {
   .checkedSubTask{
     color: rgb(226, 44, 44);
     text-decoration: line-through;
-    font-size: 30px;
+    font-size: 25px;
   }
   #trash{
     background: rgb(223, 39, 39);
@@ -269,4 +269,14 @@ transform: translate(-50%,-50%);
     header{
         font-size: 25px;
     }
+    #secondpage{
+      position: relative;
+      top:60px;
+      right: 30px;
+      
+    }
+     .popup{
+      position: absolute;
+      bottom:200px;
+    } 
 }
