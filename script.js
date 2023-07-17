@@ -15,6 +15,7 @@ icons.addEventListener('click', ()=>{
 function addItems(heading, parentNode=""){
 
   console.log(heading)
+
 // creating node
 let popup=document.createElement('div')
 popup.className="popup"
@@ -55,6 +56,7 @@ buttons.appendChild(popupClose)
   else if(heading === "Add your items"){
     popupAdd.addEventListener("click", ()=>{
       createNewTask(popupInput.value)
+      
       // to not show the text after the card creation
       todoheading.style.display="none"; 
       closingPopup()
